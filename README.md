@@ -1,5 +1,6 @@
 # Hybrid Retrieval RAG for Thai Game Patch Notes
-**Ask questions about Thai (ROV) patch notes and get cited, structured answers** a hybrid BM25 + dense retrieval pipeline with cross-encoder reranking, built on public data as an independent project.
+**Ask questions about Thai (ROV) patch notes and get cited, structured answers** 
+A hybrid BM25 + dense retrieval pipeline with cross-encoder reranking, built on public data as an independent project.
 
 > **Independent project — not affiliated with or endorsed by Garena.** "Arena of Valor" / "RoV" and related marks belong to their respective owners; no Garena content is redistributed here.
 
