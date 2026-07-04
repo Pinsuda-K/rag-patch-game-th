@@ -1,0 +1,33 @@
+sequenceDiagram
+  participant U as User
+  participant API as FastAPI (/answer)
+  participant RET as Hybrid Retrieve
+  participant BM as BM25
+  participant DEN as Dense (Chroma)
+  participant RER as Reranker (opt)
+  participant LLM as Generator (opt)
+
+  U->>API: POST /answer {q,k,use_reranker,use_bm25}
+  API->>RET: retrieve_with_timings(q)
+  par Parallel
+    RET->>BM: topK ids
+    RET->>DEN: dense similarity
+  end
+  RET->>RET: MMR (diversify to k)
+  RET-->>API: candidates + timings
+
+  alt use_reranker == true
+    API->>RER: rerank(q, candidates)
+    RER-->>API: top 8
+  else
+    API-->>API: skip reranker
+  end
+
+  alt generator configured
+    API->>LLM: prompt with citations
+    LLM-->>API: answer text
+  else
+    API-->>API: degraded message (citations only)
+  end
+
+  API-->>U: {text, citations, timings, retrieve_breakdown}
