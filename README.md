@@ -1,7 +1,7 @@
-#### rag-game-patch-th
-# Hybrid Retrieval ROV Game Patch TH (RAG 2.0)
+# Hybrid Retrieval RAG for Thai Game Patch Notes
+**Ask questions about Thai (ROV) patch notes and get cited, structured answers** a hybrid BM25 + dense retrieval pipeline with cross-encoder reranking, built on public data as an independent project.
 
-> **Independent project — not affiliated with, endorsed by, or associated with Garena.** "Arena of Valor" / "RoV" and related names and marks belong to their respective owners. This repository contains an independently built retrieval pipeline and does not redistribute Garena's content.
+> **Independent project — not affiliated with or endorsed by Garena.** "Arena of Valor" / "RoV" and related marks belong to their respective owners; no Garena content is redistributed here.
 
 Multilingual RAG system for **Garena** patch notes (ไทย).  
 Raw patch pages are **normalized into structured chunks** (attributes like *คูลดาวน์/ความเสียหาย…*, old→new, direction, units), then indexed for **hybrid retrieval (BM25 + dense)**, reranked (**bge cross-encoder**), and answered by a lightweight generator (OpenAI or local Ollama).  
