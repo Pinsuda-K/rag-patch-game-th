@@ -59,15 +59,14 @@ This project was originally prototyped against Thai ROV patch notes. Those pages
 
 ## Results (dev numbers)
 
-**Latency (CPU, small embedder):**
-POST /answer (k=8, reranker on):
-retrieve_ms ≈ 80–150 ms
-rerank_ms ≈ 4000–12000 ms # depends on CPU; warmup recommended
-llm_ms ≈ ~1–2 ms # no LLM configured → degraded message
-total_ms ≈ 4100–12150 ms
-POST /answer (k=8, reranker off):
-retrieve_ms ≈ 80–140 ms
-total_ms ≈ 90–160 ms
+**Latency (CPU, small embedder, `k=8`):**
+
+| Config | Retrieve | Rerank | LLM | Total |
+|---|---|---|---|---|
+| Reranker **on** | 80–150 ms | 4000–12000 ms* | ~1–2 ms† | 4100–12150 ms |
+| Reranker **off** | 80–140 ms | — | ~1–2 ms† | 90–160 ms |
+
+<sub>*Rerank time is CPU-bound; warmup recommended. †No LLM configured → degraded message (citations + timings still returned).</sub>
 > Tip: for a snappy demo without an LLM, set `"use_reranker": false` to show citations + timings instantly; then enable the reranker for quality.
 
 ---
