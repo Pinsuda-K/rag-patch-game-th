@@ -187,3 +187,5 @@ data/*.jsonl
 data/bm25_idx.json
 data/urls_all.txt
 !data/sample_corpus.jsonl
+!docs/images/architecture.png
+!docs/images/sequence.png
