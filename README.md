@@ -80,6 +80,9 @@ This project was originally prototyped against Thai ROV patch notes. Those pages
 - **Disk-friendly defaults**: `e5-small` + caches in `/tmp` for Codespaces.
 ---
 
+<details>
+<summary>Component deep-dive, quickstart &amp; reference (click to expand)</summary>  
+
 ## Explainers (each component, in practice)
 
 ### Normalizer (`src/ingest/normalize_chunk.py`)
@@ -394,3 +397,6 @@ curl -s -H "Content-Type: application/json" \
   - Use small embedder (`e5-small`), put caches in `/tmp`, and keep Chroma DB under `~/persist`.
 - Reranker slow on CPU
   - Keep `k` modest (≈8), warm it up, or temporarily disable for latency demos.
+
+
+</details>
